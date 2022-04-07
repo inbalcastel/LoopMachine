@@ -10,7 +10,7 @@ const Board = ({audioNames})=>{
 
 
     const handlePowerOnClick=()=>{
-        if(powerButton)
+        if(powerButton == true)
         {
           
              Object.values(audioQue).map(x=>{
@@ -18,9 +18,14 @@ const Board = ({audioNames})=>{
                 x.current.startTimer = 0;
             })
             setAudioQue({})
+            setPowerButton(false)
         }
-            setPowerButton(!powerButton)
-            clearInterval(intervalRef.current);
+        else{
+            setPowerButton(true)
+          
+        }
+        clearInterval(intervalRef.current);
+           
     }
 
     const playEventHandler =async  (audioRef,id)=>{
@@ -60,8 +65,7 @@ const Board = ({audioNames})=>{
        };
 
        const stratAudios = ()=>{
-           {powerButton && 
-                Object.values(audioQue).map(x=>{
+        return  (powerButton && Object.values(audioQue).map(x=>{
                     if(x.current.play)
                     {
                        setTimeout(() => {
@@ -72,7 +76,7 @@ const Board = ({audioNames})=>{
                         x.current.play();
                   
                  })
-           }
+        )
        }
 
 
