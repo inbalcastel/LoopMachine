@@ -1,10 +1,9 @@
-import React, {useEffect,useState,useRef } from 'react';
+import React, {useState,useRef } from 'react';
 import Square from './Square';
 
 
 const Board = ({audioNames})=>{
 
-    const audioModule = require.context('../assets/audio', true)
     const [powerButton,setPowerButton] = useState(false);
     const intervalRef = useRef();
     const [audioQue,setAudioQue] = useState({});
@@ -14,7 +13,7 @@ const Board = ({audioNames})=>{
         if(powerButton)
         {
           
-            Object.values(audioQue).map(x=>{
+             Object.values(audioQue).map(x=>{
                 x.current.pause();
                 x.current.startTimer = 0;
             })
@@ -29,9 +28,8 @@ const Board = ({audioNames})=>{
         {
             let currentAudioList = Object.assign(audioQue, {[id]: audioRef});
             setAudioQue(currentAudioList);
-            if( Object.keys(currentAudioList).length == 1)
+            if( Object.keys(currentAudioList).length === 1)
             {
-               
                 stratAudios();
                 startTimer()
             }
