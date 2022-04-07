@@ -8,18 +8,6 @@ const Square = ({item, onClick,powerButton,handleAudioIsStop})=>{
     const audioModule = require.context('../assets/audio', true);
     const audioRef = useRef(new Audio(audioModule(`./${item.title}.mp3`)));
 
-
-  
-    useEffect(() => {
-        if (!isPlaying) {
-          audioRef.current.pause();
-          audioRef.current.currentTime = 0;
-          handleAudioIsStop(item)
-        } 
-         else {
-         }
-      }, [isPlaying]);
-
       useEffect(() => {
         if (!powerButton) {
             setIsPlaying(false)
@@ -39,6 +27,7 @@ const Square = ({item, onClick,powerButton,handleAudioIsStop})=>{
         else
         {
           setIsPlaying(false)
+          handleAudioIsStop(item)
         }
       }
 
