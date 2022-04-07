@@ -27,7 +27,7 @@ const Board = ({audioNames})=>{
         {
             let currentAudioList = Object.assign(audioQue, {[id]: audioRef});
             setAudioQue(currentAudioList);
-            if( Object.keys(currentAudioList).length == 1)
+            if( Object.keys(currentAudioList).length === 1)
             {
                
                 stratAudios();
