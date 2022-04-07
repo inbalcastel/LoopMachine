@@ -1,10 +1,8 @@
-import React, {useEffect,useState,useRef } from 'react';
+import React, {useState,useRef } from 'react';
 import Square from './Square';
 
 
 const Board = ({audioNames})=>{
-
-    const audioModule = require.context('../assets/audio', true)
     const [powerButton,setPowerButton] = useState(false);
     const intervalRef = useRef();
     const [audioQue,setAudioQue] = useState({});
