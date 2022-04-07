@@ -5,11 +5,11 @@ function App() {
 
   const audioNames = [{
     id:0,
-    title:  "s3-us1"},
+    title:  "s3-us1"
+  },
 {
     id:1,
-    title:   "s3-us2"
-},
+    title:   "s3-us2"},
 {
     id:2,
     title:   "src_assets_loops_1-GHS_123_Filo_Kick_Clap"
